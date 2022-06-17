@@ -11,12 +11,14 @@ export const AddCategory = ({ onNewCategory }) => {
   const onSubmit = (event) => {
     event.preventDefault();
     if (inputValue.trim().length <= 1) return;
+
     onNewCategory(inputValue.trim());
+
     setInputValue('');
   };
 
   return (
-    <form onSubmit={onSubmit}>
+    <form onSubmit={onSubmit} aria-label='form'>
       <input
         type='text'
         placeholder='search gifs'
@@ -28,5 +30,5 @@ export const AddCategory = ({ onNewCategory }) => {
 };
 
 AddCategory.propTypes = {
-  onNewCategory: PropTypes.func,
+  onNewCategory: PropTypes.func.isRequired,
 };
